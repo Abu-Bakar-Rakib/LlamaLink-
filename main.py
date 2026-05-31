@@ -3,7 +3,7 @@ from langchain_groq import ChatGroq
 import base64
 
 st.set_page_config(
-    page_title="AI Agent • LLaMA 3.1",
+    page_title="SwiftMind • LLaMA 3.1",
     page_icon="🤖",
     layout="centered"
 )
@@ -219,7 +219,7 @@ if not st.session_state.messages:
     st.markdown("""
         <div class="welcome-card">
             <div class="icon">💬</div>
-            <p>Start a conversation — ask me anything!</p>
+            <p>Start a conversation below — ask me anything!</p>
         </div>
     """, unsafe_allow_html=True)
 else:
