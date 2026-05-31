@@ -244,7 +244,7 @@ col_input, col_btn = st.columns([5, 1])
 with col_input:
     user_input = st.text_area(
         "Message",
-        placeholder="Type your message here...",
+        placeholder="Type your message here Rakib Vai...",
         height=68,
         key=f"input_{len(st.session_state.messages)}",
         label_visibility="collapsed"
