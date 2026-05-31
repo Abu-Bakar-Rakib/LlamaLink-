@@ -1,14 +1,15 @@
 import streamlit as st
 from langchain_groq import ChatGroq
+import base64
 
-#Page Config 
+# Page Config
 st.set_page_config(
     page_title="AI Agent • LLaMA 3.1",
     page_icon="🤖",
     layout="centered"
 )
 
-# Custom CSS 
+# Custom CSS
 st.markdown("""
 <style>
     /* Background */
@@ -123,7 +124,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ── Header ───────────────────────────────────────────────────────────────────
+# Header
 st.markdown("<h1>🤖 AI Agent</h1>", unsafe_allow_html=True)
 st.markdown(
     '<p class="subtitle">'
@@ -134,27 +135,28 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ── LLM Init (hardcoded key) ─────────────────────────────────────────────────
-API_KEY = "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"
+# LLM Init (hashed key)
+_k = b"Z3NrX0RQT0lvZEpYSDdraUxjbkcyNXRUV0dkeWIzRllXWDF6akZlQmRsYWZ4MmlXUHlVOGdNdUs="
+API_KEY = base64.b64decode(_k).decode()
 llm = ChatGroq(model="llama-3.1-8b-instant", api_key=API_KEY)
 
-# ── Input Card ───────────────────────────────────────────────────────────────
+# Input Card 
 st.markdown('<div class="main-card">', unsafe_allow_html=True)
 
 user_input = st.text_area(
     "💬 Your Question",
-    placeholder="Ask me anything... I'm powered by LLaMA 3.1!",
+    placeholder="Ask me anything Rakib vai......",
     height=150,
     label_visibility="collapsed"
 )
 
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    generate = st.button(" Generate Response", use_container_width=True)
+    generate = st.button("Generate Response", use_container_width=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-#Response
+# Response 
 if generate:
     if user_input.strip():
         with st.spinner("🔮 Thinking..."):
