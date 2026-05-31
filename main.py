@@ -194,7 +194,7 @@ llm = ChatGroq(model="llama-3.1-8b-instant", api_key=API_KEY)
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-st.markdown("<h1>🤖 AI Agent</h1>", unsafe_allow_html=True)
+st.markdown("<h1>🤖 SwiftMind </h1>", unsafe_allow_html=True)
 st.markdown(
     '<p class="subtitle">'
     '<span class="badge">⚡ Groq</span>'
