@@ -15,21 +15,12 @@ st.markdown("""
         color: #f0f0f0;
     }
 
-    .main-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 20px;
-        padding: 2rem;
-        backdrop-filter: blur(10px);
-        margin-bottom: 1.5rem;
-    }
-
     h1 {
         text-align: center;
         background: linear-gradient(90deg, #a78bfa, #60a5fa, #34d399);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-size: 2.4rem !important;
+        font-size: 2.2rem !important;
         font-weight: 800 !important;
         margin-bottom: 0.2rem !important;
     }
@@ -37,67 +28,8 @@ st.markdown("""
     .subtitle {
         text-align: center;
         color: #94a3b8;
-        font-size: 0.95rem;
-        margin-bottom: 2rem;
-    }
-
-    /* ── FIX: Hide the empty label box above textarea ── */
-    .stTextArea label {
-        display: none !important;
-    }
-
-    /* ── FIX: Dark background + visible dark text ── */
-    .stTextArea textarea {
-        background: #1e1b3a !important;
-        border: 1px solid rgba(167,139,250,0.4) !important;
-        border-radius: 12px !important;
-        color: #f1f5f9 !important;
-        font-size: 1rem !important;
-        padding: 0.8rem !important;
-        resize: vertical !important;
-        caret-color: #a78bfa !important;
-    }
-    .stTextArea textarea:focus {
-        border-color: #a78bfa !important;
-        box-shadow: 0 0 0 2px rgba(167,139,250,0.25) !important;
-    }
-    .stTextArea textarea::placeholder {
-        color: #64748b !important;
-    }
-
-    /* ── FIX: Remove extra wrapper spacing from hidden label ── */
-    .stTextArea > div:first-child {
-        display: none !important;
-    }
-
-    .stButton > button {
-        width: 100%;
-        background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 12px !important;
-        padding: 0.75rem 2rem !important;
-        font-size: 1.05rem !important;
-        font-weight: 600 !important;
-        letter-spacing: 0.5px;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 4px 20px rgba(124,58,237,0.4) !important;
-    }
-    .stButton > button:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 8px 28px rgba(124,58,237,0.55) !important;
-    }
-
-    .response-box {
-        background: rgba(52, 211, 153, 0.08);
-        border: 1px solid rgba(52, 211, 153, 0.3);
-        border-radius: 14px;
-        padding: 1.2rem 1.5rem;
-        margin-top: 1.2rem;
-        color: #d1fae5;
-        font-size: 1rem;
-        line-height: 1.75;
-        white-space: pre-wrap;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
     }
 
     .badge {
@@ -111,14 +43,154 @@ st.markdown("""
         margin: 0 4px;
     }
 
-    .stSpinner > div {
-        border-top-color: #a78bfa !important;
+    /* ── Chat bubbles ── */
+    .user-bubble {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0.6rem 0;
+    }
+    .user-bubble .bubble {
+        background: linear-gradient(135deg, #7c3aed, #2563eb);
+        color: #ffffff;
+        border-radius: 18px 18px 4px 18px;
+        padding: 0.75rem 1.1rem;
+        max-width: 75%;
+        font-size: 0.97rem;
+        line-height: 1.6;
+        box-shadow: 0 4px 15px rgba(124,58,237,0.35);
     }
 
-    #MainMenu, footer, header {visibility: hidden;}
+    .ai-bubble {
+        display: flex;
+        justify-content: flex-start;
+        margin: 0.6rem 0;
+    }
+    .ai-bubble .avatar {
+        font-size: 1.4rem;
+        margin-right: 0.6rem;
+        align-self: flex-end;
+    }
+    .ai-bubble .bubble {
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(167,139,250,0.25);
+        color: #e2e8f0;
+        border-radius: 18px 18px 18px 4px;
+        padding: 0.75rem 1.1rem;
+        max-width: 75%;
+        font-size: 0.97rem;
+        line-height: 1.6;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* ── Thinking bubble ── */
+    .thinking-bubble {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #94a3b8;
+        font-size: 0.88rem;
+        margin: 0.5rem 0 0.5rem 2.2rem;
+    }
+    .dot-flashing {
+        display: inline-flex;
+        gap: 4px;
+    }
+    .dot-flashing span {
+        width: 6px; height: 6px;
+        background: #a78bfa;
+        border-radius: 50%;
+        animation: blink 1.2s infinite;
+    }
+    .dot-flashing span:nth-child(2) { animation-delay: 0.2s; }
+    .dot-flashing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes blink {
+        0%, 80%, 100% { opacity: 0.2; transform: scale(0.9); }
+        40% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* ── Input area ── */
+    .stTextArea label { display: none !important; }
+    .stTextArea > div:first-child { display: none !important; }
+    .stTextArea textarea {
+        background: rgba(255,255,255,0.07) !important;
+        border: 1px solid rgba(167,139,250,0.4) !important;
+        border-radius: 16px !important;
+        color: #f1f5f9 !important;
+        font-size: 0.97rem !important;
+        padding: 0.85rem 1rem !important;
+        resize: none !important;
+        caret-color: #a78bfa !important;
+    }
+    .stTextArea textarea:focus {
+        border-color: #a78bfa !important;
+        box-shadow: 0 0 0 2px rgba(167,139,250,0.2) !important;
+    }
+    .stTextArea textarea::placeholder { color: #64748b !important; }
+
+    /* ── Send button ── */
+    .stButton > button {
+        background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 0.7rem 1.4rem !important;
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        height: 100%;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(124,58,237,0.4) !important;
+        transition: all 0.25s ease !important;
+    }
+    .stButton > button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 24px rgba(124,58,237,0.55) !important;
+    }
+
+    /* ── Clear button ── */
+    .clear-btn > button {
+        background: rgba(255,255,255,0.05) !important;
+        color: #94a3b8 !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        border-radius: 10px !important;
+        font-size: 0.8rem !important;
+        padding: 0.3rem 0.9rem !important;
+        box-shadow: none !important;
+    }
+    .clear-btn > button:hover {
+        background: rgba(255,255,255,0.1) !important;
+        transform: none !important;
+    }
+
+    /* ── Divider ── */
+    .chat-divider {
+        border: none;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        margin: 1rem 0;
+    }
+
+    /* ── Welcome card ── */
+    .welcome-card {
+        text-align: center;
+        padding: 2.5rem 1rem;
+        color: #475569;
+    }
+    .welcome-card .icon { font-size: 3rem; margin-bottom: 0.5rem; }
+    .welcome-card p { font-size: 0.95rem; }
+
+    #MainMenu, footer, header { visibility: hidden; }
+    .stSpinner > div { border-top-color: #a78bfa !important; }
 </style>
 """, unsafe_allow_html=True)
 
+# ── Init ─────────────────────────────────────────────────────────────────────
+_k = b"Z3NrX0RQT0lvZEpYSDdraUxjbkcyNXRUV0dkeWIzRllXWDF6akZlQmRsYWZ4MmlXUHlVOGdNdUs="
+API_KEY = base64.b64decode(_k).decode()
+llm = ChatGroq(model="llama-3.1-8b-instant", api_key=API_KEY)
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# ── Header ───────────────────────────────────────────────────────────────────
 st.markdown("<h1>🤖 AI Agent</h1>", unsafe_allow_html=True)
 st.markdown(
     '<p class="subtitle">'
@@ -129,35 +201,84 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-_k = b"Z3NrX0RQT0lvZEpYSDdraUxjbkcyNXRUV0dkeWIzRllXWDF6akZlQmRsYWZ4MmlXUHlVOGdNdUs="
-API_KEY = base64.b64decode(_k).decode()
-llm = ChatGroq(model="llama-3.1-8b-instant", api_key=API_KEY)
+# ── Clear chat button ─────────────────────────────────────────────────────────
+if st.session_state.messages:
+    col_spacer, col_clear = st.columns([5, 1])
+    with col_clear:
+        st.markdown('<div class="clear-btn">', unsafe_allow_html=True)
+        if st.button("🗑 Clear"):
+            st.session_state.messages = []
+            st.rerun()
+        st.markdown('</div>', unsafe_allow_html=True)
 
-st.markdown('<div class="main-card">', unsafe_allow_html=True)
+st.markdown('<hr class="chat-divider">', unsafe_allow_html=True)
 
-user_input = st.text_area(
-    "💬 Your Question",
-    placeholder="Ask me anything Rakib Vai..",
-    height=150,
-    label_visibility="collapsed"
-)
+# ── Chat History ─────────────────────────────────────────────────────────────
+if not st.session_state.messages:
+    st.markdown("""
+        <div class="welcome-card">
+            <div class="icon">💬</div>
+            <p>Start a conversation — ask me anything!</p>
+        </div>
+    """, unsafe_allow_html=True)
+else:
+    for msg in st.session_state.messages:
+        if msg["role"] == "user":
+            st.markdown(f"""
+                <div class="user-bubble">
+                    <div class="bubble">{msg["content"]}</div>
+                </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown(f"""
+                <div class="ai-bubble">
+                    <div class="avatar">🤖</div>
+                    <div class="bubble">{msg["content"]}</div>
+                </div>
+            """, unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    generate = st.button("✨ Generate Response", use_container_width=True)
+st.markdown('<hr class="chat-divider">', unsafe_allow_html=True)
 
-st.markdown('</div>', unsafe_allow_html=True)
+# ── Input Bar ─────────────────────────────────────────────────────────────────
+col_input, col_btn = st.columns([5, 1])
 
-if generate:
+with col_input:
+    user_input = st.text_area(
+        "Message",
+        placeholder="Type your message here...",
+        height=68,
+        key=f"input_{len(st.session_state.messages)}",
+        label_visibility="collapsed"
+    )
+
+with col_btn:
+    st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+    send = st.button("➤", use_container_width=True)
+
+# ── Handle Send ───────────────────────────────────────────────────────────────
+if send:
     if user_input.strip():
-        with st.spinner("🔮 Thinking..."):
+        st.session_state.messages.append({"role": "user", "content": user_input.strip()})
+
+        with st.spinner(""):
+            st.markdown("""
+                <div class="thinking-bubble">
+                    <div class="dot-flashing">
+                        <span></span><span></span><span></span>
+                    </div>
+                    Thinking...
+                </div>
+            """, unsafe_allow_html=True)
             try:
-                response = llm.invoke(user_input)
-                st.markdown(
-                    f'<div class="response-box">🧠  {response.content}</div>',
-                    unsafe_allow_html=True
-                )
+                history = [
+                    ("human" if m["role"] == "user" else "assistant", m["content"])
+                    for m in st.session_state.messages
+                ]
+                response = llm.invoke(history)
+                st.session_state.messages.append({"role": "assistant", "content": response.content})
             except Exception as e:
-                st.error(f"❌ Error: {str(e)}")
+                st.session_state.messages.append({"role": "assistant", "content": f"❌ Error: {str(e)}"})
+
+        st.rerun()
     else:
-        st.warning("⚠️ Please enter a question before generating a response.")
+        st.warning("⚠️ Please type a message first.")
