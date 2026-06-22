@@ -141,8 +141,12 @@ st.markdown("""
     }
 
     /* ── FIX: remove white background from chat input container ── */
+    div[data-testid="stBottom"],
+    div[data-testid="stBottomBlockContainer"],
+    div[data-testid="stChatFloatingInputContainer"],
     div[data-testid="stChatInput"],
     div[data-testid="stChatInput"] > div {
+        background: transparent !important;
         background-color: transparent !important;
         border: none !important;
         box-shadow: none !important;
