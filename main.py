@@ -11,7 +11,7 @@ st.set_page_config(
 st.markdown("""
 <style>
     .stApp {
-        background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        background: linear-gradient(135deg, #0a1628, #0d2b3e, #0f2027);
         color: #f0f0f0;
     }
     .main-card {
@@ -24,7 +24,7 @@ st.markdown("""
     }
     h1 {
         text-align: center;
-        background: linear-gradient(90deg, #a78bfa, #60a5fa, #34d399);
+        background: linear-gradient(90deg, #2dd4bf, #22d3ee, #34d399);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 2.2rem !important;
@@ -39,12 +39,12 @@ st.markdown("""
     }
     .badge {
         display: inline-block;
-        background: rgba(167,139,250,0.15);
-        border: 1px solid rgba(167,139,250,0.35);
+        background: rgba(45,212,191,0.15);
+        border: 1px solid rgba(45,212,191,0.35);
         border-radius: 20px;
         padding: 3px 14px;
         font-size: 0.78rem;
-        color: #c4b5fd;
+        color: #5eead4;
         margin: 0 4px;
     }
     .user-bubble {
@@ -53,14 +53,14 @@ st.markdown("""
         margin: 0.6rem 0;
     }
     .user-bubble .bubble {
-        background: linear-gradient(135deg, #7c3aed, #2563eb);
+        background: linear-gradient(135deg, #0d9488, #0891b2);
         color: #ffffff;
         border-radius: 18px 18px 4px 18px;
         padding: 0.75rem 1.1rem;
         max-width: 75%;
         font-size: 0.97rem;
         line-height: 1.6;
-        box-shadow: 0 4px 15px rgba(124,58,237,0.35);
+        box-shadow: 0 4px 15px rgba(13,148,136,0.35);
     }
     .ai-bubble {
         display: flex;
@@ -74,7 +74,7 @@ st.markdown("""
     }
     .ai-bubble .bubble {
         background: rgba(255,255,255,0.07);
-        border: 1px solid rgba(167,139,250,0.25);
+        border: 1px solid rgba(45,212,191,0.25);
         color: #e2e8f0;
         border-radius: 18px 18px 18px 4px;
         padding: 0.75rem 1.1rem;
@@ -97,7 +97,7 @@ st.markdown("""
     }
     .dot-flashing span {
         width: 6px; height: 6px;
-        background: #a78bfa;
+        background: #2dd4bf;
         border-radius: 50%;
         animation: blink 1.2s infinite;
     }
@@ -119,15 +119,15 @@ st.markdown("""
     .stTextArea textarea:hover,
     div[data-baseweb="textarea"] textarea,
     div[data-baseweb="base-input"] textarea {
-        background-color: #1a1535 !important;
+        background-color: #0a1e2b !important;
         color: #f1f5f9 !important;
         -webkit-text-fill-color: #f1f5f9 !important;
-        border: 1px solid rgba(167,139,250,0.4) !important;
+        border: 1px solid rgba(45,212,191,0.4) !important;
         border-radius: 16px !important;
         font-size: 0.97rem !important;
         padding: 0.85rem 1rem !important;
         resize: none !important;
-        caret-color: #a78bfa !important;
+        caret-color: #2dd4bf !important;
     }
     .stTextArea textarea::placeholder,
     div[data-baseweb="textarea"] textarea::placeholder {
@@ -136,12 +136,12 @@ st.markdown("""
     }
     div[data-baseweb="textarea"],
     div[data-baseweb="base-input"] {
-        background-color: #1a1535 !important;
+        background-color: #0a1e2b !important;
         border-radius: 16px !important;
     }
 
     .stButton > button {
-        background: linear-gradient(135deg, #7c3aed, #2563eb) !important;
+        background: linear-gradient(135deg, #0d9488, #0891b2) !important;
         color: white !important;
         border: none !important;
         border-radius: 12px !important;
@@ -150,12 +150,12 @@ st.markdown("""
         font-weight: 700 !important;
         height: 100%;
         width: 100%;
-        box-shadow: 0 4px 15px rgba(124,58,237,0.4) !important;
+        box-shadow: 0 4px 15px rgba(13,148,136,0.4) !important;
         transition: all 0.25s ease !important;
     }
     .stButton > button:hover {
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 24px rgba(124,58,237,0.55) !important;
+        box-shadow: 0 8px 24px rgba(13,148,136,0.55) !important;
     }
     .clear-btn > button {
         background: rgba(255,255,255,0.05) !important;
@@ -178,13 +178,13 @@ st.markdown("""
     .welcome-card {
         text-align: center;
         padding: 6rem 1rem 2rem;
-        margin-top: -10rem;
-        color: #FFFFFF;
+        margin-top: -5rem;
+        color: #5eead4;
     }
     .welcome-card .icon { font-size: 3rem; margin-bottom: 0.5rem; }
     .welcome-card p { font-size: 0.95rem; }
     #MainMenu, footer, header { visibility: hidden; }
-    .stSpinner > div { border-top-color: #a78bfa !important; }
+    .stSpinner > div { border-top-color: #2dd4bf !important; }
 </style>
 """, unsafe_allow_html=True)
 
