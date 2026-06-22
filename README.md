@@ -23,8 +23,8 @@ LlamaLink delivers fast, intelligent responses by leveraging state-of-the-art la
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Abu-Bakar-Rakib/AI_agent.git
-cd AI_agent
+git clone https://github.com/Abu-Bakar-Rakib/LlamaLink-.git
+cd LlamaLink-
 ```
 
 ### 2. Install Dependencies
@@ -58,15 +58,15 @@ The app will open in your default browser at `http://localhost:8501`. Enter your
 ## Project Structure
 
 ```
-AI_agent/
-├── main.py              # Main application entry point
+LlamaLink-/
+├── app.py              # Main application entry point
 ├── requirements.txt    # Python dependencies
 └── README.md          # This file
 ```
 
 ## Available Models
 
-Configure the model by editing the `model` parameter in `main.py`:
+Configure the model by editing the `model` parameter in `app.py`:
 
 ```python
 llm = ChatGroq(model="llama-3.1-8b-instant", api_key=API_KEY)
@@ -102,7 +102,7 @@ The application is deployed and available at:
 1. Visit [Groq Console](https://console.groq.com)
 2. Sign up or log in
 3. Create a new API key
-4. Copy and paste it into the SwiftMind interface
+4. Copy and paste it into the LlamaLink interface
 
 ## Troubleshooting
 
@@ -116,7 +116,7 @@ This project is open source and available under the MIT License.
 
 ## Contact & Support
 
-For issues, questions, or contributions, please open an issue on [GitHub](https://github.com/Abu-Bakar-Rakib/AI_agent/issues).
+For issues, questions, or contributions, please open an issue on [GitHub](https://github.com/Abu-Bakar-Rakib/LlamaLink-/issues).
 
 ---
 
