@@ -59,14 +59,14 @@ The app will open in your default browser at `http://localhost:8501`. Enter your
 
 ```
 AI_agent/
-├── app.py              # Main application entry point
+├── main.py              # Main application entry point
 ├── requirements.txt    # Python dependencies
 └── README.md          # This file
 ```
 
 ## Available Models
 
-Configure the model by editing the `model` parameter in `app.py`:
+Configure the model by editing the `model` parameter in `main.py`:
 
 ```python
 llm = ChatGroq(model="llama-3.1-8b-instant", api_key=API_KEY)
