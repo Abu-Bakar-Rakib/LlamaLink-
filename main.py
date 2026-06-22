@@ -3,7 +3,7 @@ from langchain_groq import ChatGroq
 
 
 st.set_page_config(
-    page_title="SwiftMind • LLaMA 3.1",
+    page_title="LlamaLink • LLaMA 3.1",
     page_icon="🤖",
     layout="centered"
 )
@@ -224,7 +224,7 @@ llm = ChatGroq(model="llama-3.1-8b-instant", api_key=API_KEY)
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-st.markdown("<h1>🤖 SwiftMind </h1>", unsafe_allow_html=True)
+st.markdown("<h1>🤖 LlamaLink </h1>", unsafe_allow_html=True)
 st.markdown(
     '<p class="subtitle">'
     '<span class="badge">⚡ Groq</span>'
