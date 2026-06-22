@@ -109,16 +109,21 @@ st.markdown("""
     }
 
     /* ── FIX: hide label box ── */
-    .stTextArea label { display: none !important; }
-    .stTextArea > div:first-child { display: none !important; }
+    .stTextArea label, .stTextInput label { display: none !important; }
+    .stTextArea > div:first-child, .stTextInput > div:first-child { display: none !important; }
 
     /* ── FIX: force dark background + white text on ALL states ── */
     .stTextArea textarea,
     .stTextArea textarea:focus,
     .stTextArea textarea:active,
     .stTextArea textarea:hover,
+    .stTextInput input,
+    .stTextInput input:focus,
+    .stTextInput input:active,
+    .stTextInput input:hover,
     div[data-baseweb="textarea"] textarea,
-    div[data-baseweb="base-input"] textarea {
+    div[data-baseweb="base-input"] textarea,
+    div[data-baseweb="input"] input {
         background-color: #0a1e2b !important;
         color: #f1f5f9 !important;
         -webkit-text-fill-color: #f1f5f9 !important;
@@ -130,14 +135,38 @@ st.markdown("""
         caret-color: #2dd4bf !important;
     }
     .stTextArea textarea::placeholder,
-    div[data-baseweb="textarea"] textarea::placeholder {
+    .stTextInput input::placeholder,
+    div[data-baseweb="textarea"] textarea::placeholder,
+    div[data-baseweb="input"] input::placeholder {
         color: #64748b !important;
         -webkit-text-fill-color: #64748b !important;
     }
     div[data-baseweb="textarea"],
-    div[data-baseweb="base-input"] {
+    div[data-baseweb="base-input"],
+    div[data-baseweb="input"] {
         background-color: #0a1e2b !important;
         border-radius: 16px !important;
+    }
+
+    /* ── FIX: remove white background from chat input container ── */
+    div[data-testid="stBottom"],
+    div[data-testid="stBottomBlockContainer"],
+    div[data-testid="stChatFloatingInputContainer"],
+    div[data-testid="stChatInput"],
+    div[data-testid="stChatInput"] > div {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Make the send icon button match our theme */
+    div[data-testid="stChatInput"] button {
+        background-color: transparent !important;
+        color: #2dd4bf !important;
+    }
+    div[data-testid="stChatInput"] button:hover {
+        color: #0d9488 !important;
     }
 
     .stButton > button {
@@ -241,20 +270,14 @@ else:
 
 st.markdown('<hr class="chat-divider">', unsafe_allow_html=True)
 
-col_input, col_btn = st.columns([5, 1])
-with col_input:
-    user_input = st.text_area(
-        "Message",
-        placeholder="Type your message here Rakib Vai...",
-        height=68,
-        key=f"input_{len(st.session_state.messages)}",
-        label_visibility="collapsed"
-    )
-with col_btn:
-    st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-    send = st.button("➤", use_container_width=True)
+user_input = st.text_input(
+    "Message",
+    placeholder="Type your message here Rakib Vai...",
+    key=f"input_{len(st.session_state.messages)}",
+    label_visibility="collapsed"
+)
 
-if send:
+if user_input:
     if user_input.strip():
         st.session_state.messages.append({"role": "user", "content": user_input.strip()})
         with st.spinner(""):
