@@ -2,6 +2,8 @@ streamlit
 langchain
 langchain-groq
 groq
+streamlit
+langchain-groq
 
 
 
