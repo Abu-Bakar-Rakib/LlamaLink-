@@ -1,10 +1,10 @@
-# SwiftMind
+# LlamaLink
 
 A high-performance ChatGPT-style AI chat application built with Streamlit and LangChain, powered by LLaMA 3.1 8B on Groq infrastructure.
 
 ## Overview
 
-SwiftMind delivers fast, intelligent responses by leveraging state-of-the-art language models through the Groq API. With minimal setup, users can interact with advanced AI capabilities without complex configurations.
+LlamaLink delivers fast, intelligent responses by leveraging state-of-the-art language models through the Groq API. With minimal setup, users can interact with advanced AI capabilities without complex configurations.
 
 ## Features
 
@@ -95,7 +95,7 @@ llm = ChatGroq(model="llama-3.1-8b-instant", api_key=API_KEY)
 ## Deployment
 
 The application is deployed and available at:
-[SwiftMind on Streamlit Cloud](https://swiftmind-phxy2qqxtiwqojkpk823rp.streamlit.app/)
+[LlamaLink on Streamlit Cloud](https://swiftmind-phxy2qqxtiwqojkpk823rp.streamlit.app/)
 
 ## Getting Your Groq API Key
 
@@ -120,4 +120,4 @@ For issues, questions, or contributions, please open an issue on [GitHub](https:
 
 ---
 
-**SwiftMind** — Fast answers. Zero wait.
+**LlamaLink** — Fast answers. Zero wait.
