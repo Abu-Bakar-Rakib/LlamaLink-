@@ -1,9 +1,6 @@
 import streamlit as st
 from langchain_groq import ChatGroq
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 st.set_page_config(
     page_title="SwiftMind • LLaMA 3.1",
@@ -190,7 +187,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-API_KEY = os.environ.get("GROQ_API_KEY")
+API_KEY = st.secrets.get("GROQ_API_KEY") or os.environ.get("GROQ_API_KEY")
 llm = ChatGroq(model="llama-3.1-8b-instant", api_key=API_KEY)
 
 if "messages" not in st.session_state:
